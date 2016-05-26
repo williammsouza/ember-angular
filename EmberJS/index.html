@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ember Example</title>
+  <script type="text/javascript" src="./js/vendor/jquery.js"></script>
+  <script type="text/javascript" src="./js/vendor/handlebars.js"></script>
+  <script type="text/javascript" src="./js/vendor/ember-template-compiler.js"></script>
+  <script type="text/javascript" src="./js/vendor/ember.js"></script>
+  <script type="text/javascript" src="./js/vendor/ember-data.js"></script>
+  <script type="text/javascript" src="./js/main.js"></script>
+
+</head>
+<body>
+  <script type="text/x-handlebars" data-template-name="application">
+    {{outlet}}
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="index">
+    Hey there I am the Index
+    {{#link-to 'users'}}Go to Users{{/link-to}}
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="users">
+    {{#each user in model}}
+      <p {{bind-attr class='user.classAlive'}}> name: {{user.name}} </p>
+      <p> last_name: {{user.last_name}} </p>
+      <p> dob: {{user.dob}} </p>
+      <p>{{#link-to 'user' user}} Go to this user {{/link-to}}</p>
+    {{/each}}
+
+    {{#link-to 'users.new'}}Create a new user{{/link-to}}
+
+    {{outlet}}
+  </script>
+
+
+  <script type="text/x-handlebars" data-template-name="user">
+    <p > name: {{model.name}} </p>
+    <p> last_name: {{model.last_name}} </p>
+    <p> dob: {{model.dob}} </p>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="users/new">
+    <form>
+      {{input type='text' name='name' id="name" value=name}}
+      {{input type='text' name='last_name' id="last_name" value=last_name}}
+      <button type="submit" {{action 'createUser'}}>create user</button>
+
+      {{name}}
+      {{last_name}}
+    </form>
+  </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+This is an example with ember, this examples was made for explain basic concepts of ember.
+
+I encourage to make this work with `http-server`, you can download it with:
+
+```
+npm install http-server -g
+```
+
+To run the server, just run:
+
+```
+http-server
+```

@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Angular JS</title>
+
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script> 
+    <script src="script.js"></script>
+
+</head>
+<body ng-app class="container"> 
+   
+    <p>1 + 1 = {{1 + 1}}</p>
+	
+    <input type="text" ng-model="nom" placeholder="Digite seu nome">
+    <p>O Seu Nome: {{nom}}</p>
+
+
+    <hr>
+
+    <input type="text" ng-model="color" placeholder="Sua cor">
+    <p style="color: {{color}}">Cor : {{color}}</p>
+    
+
+    <hr>
+
+  
+    <div ng-controller="test">
+        <p>Controladores : {{adjectif}}.</p>
+       
+        <hr>
+
+        <p>Seu nome é : {{nom}}</p>
+      
+        <hr>
+
+        <p>O Nosso Usuario {{utilisateur.nom}}, sua idade  {{utilisateur.age}} - {{utilisateur.ville}}.</p>
+       
+
+        <hr>
+
+       
+        <p>Algumas Frutas:</p>
+        <ul>
+            <li ng-repeat="fruit in fruits">
+                sua fruta {{fruit}} e seu dono  {{nom}}.
+              
+            </li>
+        </ul>
+
+        <hr>
+
+     
+        <button
+            ng-click="showAlert()"
+            class="btn btn-primary">
+		Mostrar aviso
+        </button>
+
+        <hr>
+
+  
+        <form ng-submit="addFruit(fruit)">
+
+            <input type="text" ng-model="fruit">
+            <button class="btn btn-primary">Adicionar Fruta</button>
+         
+        </form>
+
+        <hr>
+        <input type="text" ng-model="toLog" placeholder="console">
+    </div>
+
+    <hr>
+
+</body>
+</html>
